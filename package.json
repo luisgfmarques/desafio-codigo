@@ -1,0 +1,22 @@
+{
+  "name": "desafio-codigo",
+  "version": "1.0.0",
+  "description": "resolucao desafio Novatics",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisgfmarques/desafio-codigo.git"
+  },
+  "author": "Luis Marques",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luisgfmarques/desafio-codigo/issues"
+  },
+  "homepage": "https://github.com/luisgfmarques/desafio-codigo#readme",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
+}
