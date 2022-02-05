@@ -7,12 +7,11 @@ function Tipo1(array) {
     // Remove os elementos duplicados.
     return array.filter((elemento, pos) => array.indexOf(elemento) == pos)
     /* A função filter faz uma varredura no vetor, adicionando os elemento no vetor de retorno somente se passar no caso de teste da arrow function.
-    o indexOF retorna a posição do primeiro elemento do array. ocorre a verificação se a posição retornada pelo indexOf e = a pos do elemento que está sendo analisado.
-    Retornando positivo somente se o elemento for a primeira aparição no vetor. e evitando duplicatas na resposta.
+    o indexOF retorna a posição do primeiro elemento do array.
     */
 }
 // ----------------------------------------
-// Solução 2, utilizando uma abordagem com ordenação por merge sort e analise valor por valor.
+// Solução 2, utilizando uma abordagem com ordenação por merge sort.
 // Implementação do merge e mergesort para JS
 function merge(A1, A2) {
     let arr = []
@@ -52,12 +51,12 @@ function remove_iguais(array) {
     }
     return arr
 }
-// Funcao Tipo 2 , efetuando a ordenação por merge sorte e após isso realizando a remoção dos duplicados
 function Tipo2(x) {
     x = mergesort(x);
     return remove_iguais(x)
 }
 /*
+                                    Valida Sudoku
     Para a solução de Validar o Sudoku tentei realizar uma verificação simples, verificando inicialmente as linhas.
     Posterior as colunas, e por ultimo as mini/sub tabelas. Utilizando a mesma estrategia da solução Tipo 1 para verificar duplicidade
     nos números, excluindo o carácter "."
@@ -65,7 +64,6 @@ function Tipo2(x) {
 function ValidaSudoku(array) {
     // conferencia inicial das linhas.
     var arraytemp = []
-    var verifica = []
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             if (array[i].indexOf(array[i][j]) != j && array[i][j] != ".") {
@@ -76,6 +74,7 @@ function ValidaSudoku(array) {
     // conferencia das colunas
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
+            // inclusão dos algarismos da coluna no array.
             arraytemp.push(array[j][i])
             if (arraytemp.indexOf(array[j][i]) != j && array[j][i] != ".") {
                 return false
@@ -86,16 +85,17 @@ function ValidaSudoku(array) {
     // conferencia da mini tabela.
     for (let i = 0; i < 9; i += 3) {
         for (let j = 0; j < 9; j += 3) {
+            // inclusão dos 9 algarismos da mini tabela em um array.
             for (let k = 0; k < 3; k++) {
                 arraytemp.push(array[j + k][i])
                 arraytemp.push(array[j + k][i + 1])
                 arraytemp.push(array[j + k][i + 2])
             }
+            //verificação de duplicidade
             if (arraytemp.some((elemento, pos) => (arraytemp.indexOf(elemento) != pos) && elemento != ".")) {
                 return false
             }
             arraytemp = []
-            verifica = []
         }
     }
     return true
